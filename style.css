@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+
+    background: linear-gradient(45deg, #320b66, #121214);
+}
+
+/* header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.1rem;
+    font-weight: 400;
+    color: white;
+}
+
+.audio {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    clip-path: circle();
+
+    background: #9445c9;
+}
+
+.audio:hover {
+    transform: scale(1.10, 1.10)
+}
+
+.audio img {
+    max-width: 1.5rem;
+}
+
+/* pontuação */
+.punctuation {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    color: white;
+}
+
+#hits {
+    color: #1dc468;
+}
+
+#mistakes {
+    color: #c41d1d;
+}
+
+/* section */
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    transform-style: preserve-3d;
+    transition: all .5s;
+
+    pointer-events: none;
+}
+
+/* flip card */
+.face {
+    width: 6rem;
+    height: 6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: .4rem;
+
+    font-size: 1rem;
+}
+
+.face img {
+    width: 4rem;
+    height: 4rem;
+}
+
+#front, #back {
+    width: 5.2rem;
+    height: 5.2rem;
+}
+
+#front {
+    background: #67159c;
+    border: 3px double #9445c9;
+
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+#front:hover {
+    filter: brightness(1.5);
+}
+
+#back {
+    background: #3CB9FC;
+    border: 3px double #2c86b6;
+
+    backface-visibility: hidden;
+    position: absolute;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+/* modal fim de jogo */
+.modal {
+    width: 16.4rem;
+    height: 26rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    
+    background: #320b66;
+    border: 3px double #67159c;
+    color: white;
+    border-radius: .5rem;
+
+    text-align: center;
+    font-weight: bold;
+
+    transition: transform 1s;
+    transform: scale(.5);
+
+    visibility: hidden;
+}
+
+.modal p {
+    font-size: 1.3rem;
+}
+
+.modal .message {
+    font-size: 1rem;
+    color: #bdbd27;
+}
+
+.modal button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    background: #2c86b6;
+    color: white;
+}
+
+.modal.active {
+    transform: scale(1);
+    visibility: visible;
+}
+
+/* media query */
+@media (min-width: 414px) {
+    .modal {
+        width: 24.4rem;
+        height: 35rem;
+    }
+
+    h1 {
+        font-size: 2.9rem;
+    }
+
+    .punctuation {
+        font-size: 1.5rem;
+    }
+
+    #front, #back {
+        width: 5.6rem;
+        height: 5.6rem;
+    }
+}
+
+@media (min-width: 667px) {
+    .modal {
+        width: 28.4rem;
+        height: 40rem;
+    }
+
+    header {
+        gap: .8rem;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .face img {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    #front, #back {
+        width: 6.6rem;
+        height: 6.6rem;
+    }
+}
