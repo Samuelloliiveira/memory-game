@@ -12,17 +12,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onmouseover="turnOnAudio()">
     <div class="wrap">
         <header>
             <h1>Memory-Game</h1>
-            <div class="audio">
-                <img src="./assets/loudspeaker.svg" alt="auto falante">
-    
-                <audio loop>
-                    <source src="./music/the-goon's-loose-nathan-moore.mp3" type="audio/mpeg">
-                </audio>
-            </div>
         </header>
     
         <main>
@@ -36,6 +29,10 @@
         </main>
         
     </div>
+
+    <audio class="audio" loop>
+        <source src="./music/the-goon's-loose-nathan-moore.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="modal">
         <h3>Fim de Jogo</h3>

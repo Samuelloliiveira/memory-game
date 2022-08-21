@@ -1,20 +1,3 @@
-function toggleAudio() {
-    const audio = document.querySelector('.audio')
-    const music = document.querySelector('audio')
-
-    audio.addEventListener('click', () => {
-        audio.classList.toggle("play")
-
-        const containPlay = audio.classList.contains("play")
-
-        if (containPlay) {
-            music.play()
-        } else {
-            music.pause()
-        }
-    })
-}
-
 const imageCard = [
     {
         src: "./assets/bulbasaur.svg",
@@ -54,6 +37,11 @@ const imageCard = [
 // pontos
 let hit = 0
 let mistake = 0
+
+function turnOnAudio() {
+    const music = document.querySelector('audio')
+    music.play()
+}
 
 function createCardGrid(imageCard) {
 
@@ -186,7 +174,6 @@ function showModal(hit, mistake) {
     })
 }
 
-toggleAudio()
 createCardGrid(imageCard)
 flipCard()
 const interval = setInterval(cardFlipTime, 1500)
