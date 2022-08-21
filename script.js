@@ -112,6 +112,11 @@ function differentOrSameCard() {
             const evenNumber = arrayOfSelectedCards.length % 2 === 0
 
             if (evenNumber) {
+
+                for (const card of cards) {
+                    card.style.pointerEvents = "none"
+                }
+
                 if (card.innerHTML == arrayOfSelectedCards[1].innerHTML) {
 
                     hitsAndMistake(hit = hit + 1, mistake)
@@ -122,6 +127,10 @@ function differentOrSameCard() {
                         showModal(hit, mistake)
                     }
 
+                    for (const card of cards) {
+                        card.style.pointerEvents = "auto"
+                    }
+
                 } else {
 
                     hitsAndMistake(hit, mistake = mistake + 1)
@@ -130,7 +139,10 @@ function differentOrSameCard() {
                         for (let i = 0; i < 2; i++) {
                             arrayOfSelectedCards[i].classList.add("flip")
 
-                            arrayOfSelectedCards[i].style.pointerEvents = "auto"
+                            for (const card of cards) {
+                                card.style.pointerEvents = "auto"
+                            }
+
                         }
                     }, 1000)
 
