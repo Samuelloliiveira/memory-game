@@ -12,27 +12,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onmouseover="turnOnAudio()">
+<body>
     <div class="wrap">
         <header>
             <h1>Memory-Game</h1>
+
+            <div class="audio">
+                <img src="./assets/loudspeaker.svg" alt="auto falante">
+
+                <audio loop>
+                    <source src="./music/the-goon's-loose-nathan-moore.mp3" type="audio/mpeg">
+                </audio>
+            </div>
         </header>
-    
+
         <main>
             <section class="punctuation">
                 <p>Acertos : <span id="hits">0</span></p>
                 <p>Erros: <span id="mistakes">0</span></p>
             </section>
-        
-            <section id="grid">
-            </section>    
-        </main>
-        
-    </div>
 
-    <audio class="audio" loop>
-        <source src="./music/the-goon's-loose-nathan-moore.mp3" type="audio/mpeg">
-    </audio>
+            <section id="grid">
+            </section>
+        </main>
+
+    </div>
 
     <div class="modal">
         <h3>Fim de Jogo</h3>
@@ -43,7 +47,7 @@
 
         <button class="button">Jogar novamente</button>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 

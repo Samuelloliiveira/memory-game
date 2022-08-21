@@ -38,9 +38,23 @@ const imageCard = [
 let hit = 0
 let mistake = 0
 
-function turnOnAudio() {
+function toggleAudio() {
+    const audio = document.querySelector('.audio')
     const music = document.querySelector('audio')
-    music.play()
+
+    audio.addEventListener('click', () => {
+        audio.classList.toggle("play")
+
+        music.volume = 0.3
+
+        const containPlay = audio.classList.contains("play")
+
+        if (containPlay) {
+            music.play()
+        } else {
+            music.pause()
+        }
+    })
 }
 
 function createCardGrid(imageCard) {
@@ -174,6 +188,7 @@ function showModal(hit, mistake) {
     })
 }
 
+toggleAudio()
 createCardGrid(imageCard)
 flipCard()
 const interval = setInterval(cardFlipTime, 1500)
