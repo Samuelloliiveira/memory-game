@@ -137,6 +137,7 @@ h1 {
 
     transform: rotateY(180deg);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
 }
 
 #front:hover {
@@ -146,9 +147,16 @@ h1 {
 #back {
     background: #3CB9FC;
     border: 3px double #2c86b6;
+    
+    position: absolute;
 
     backface-visibility: hidden;
-    position: absolute;
+    -webkit-backface-visibility: hidden; /* Safari */
+}
+
+#back img {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
 }
 
 .flip {
